@@ -31,8 +31,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="assets/hero-isaac.jpg">
   <link rel="stylesheet" href="styles.css">
 
   <script type="application/ld+json">
@@ -65,11 +66,8 @@
 
   <!-- ============ CABEÇALHO ============ -->
   <header class="site-header" id="topo">
-    <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="Isaac Brasil — início">
-        <span class="brand-mark" aria-hidden="true">IB</span>
-        <span class="brand-name">Isaac Brasil</span>
-      </a>
+    <div class="header-bar">
+      <a class="brand" href="#inicio">Isaac Brasil</a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
         <span class="nav-toggle-bar" aria-hidden="true"></span>
@@ -78,12 +76,11 @@
 
       <nav class="site-nav" id="menu-principal" aria-label="Navegação principal">
         <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#palestras">Palestras</a></li>
-          <li><a href="#oficinas">Oficinas</a></li>
-          <li><a href="#como-trabalho">Como trabalho</a></li>
-          <li><a href="#pesquisa">Pesquisa</a></li>
-          <li><a class="nav-cta" href="#contato">Contato</a></li>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre mim</a></li>
+          <li><a href="#palestras">Palestras e oficinas</a></li>
+          <li><a href="#pesquisa">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </div>
@@ -93,15 +90,32 @@
 
     <!-- ============ A — INÍCIO ============ -->
     <section class="hero" id="inicio" aria-labelledby="hero-titulo">
-      <div class="container hero-grid">
+      <!--
+        FOTOGRAFIA PRINCIPAL
+        Para trocar, substitua o arquivo assets/hero-isaac.jpg por outra foto
+        (vertical, de preferência com fundo claro e a pessoa centralizada).
+      -->
+      <img class="hero-photo" src="assets/hero-isaac.jpg" alt="Isaac Brasil, de camisa azul e braços cruzados, sorrindo em um ambiente educacional" width="1210" height="1298" fetchpriority="high">
+
+      <svg class="hero-net" viewBox="0 0 520 360" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M0 120 L70 60 L150 140 L60 230 Z M70 60 L190 30 L150 140 L260 190 L190 30 M150 140 L130 280 L60 230 M130 280 L260 190 L300 320 L130 280 M260 190 L380 250 L300 320 M380 250 L470 330 M0 300 L60 230 M130 280 L90 360 M300 320 L330 360"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="70" cy="60" r="3"/><circle cx="150" cy="140" r="3.5"/><circle cx="60" cy="230" r="3"/>
+          <circle cx="190" cy="30" r="2.5"/><circle cx="260" cy="190" r="3.5"/><circle cx="130" cy="280" r="3"/>
+          <circle cx="300" cy="320" r="3"/><circle cx="380" cy="250" r="2.5"/>
+        </g>
+      </svg>
+
+      <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Isaac Brasil · Docente e pesquisador</p>
-          <h1 id="hero-titulo">Design Instrucional e Inteligência Artificial na&nbsp;Educação</h1>
-          <p class="hero-lead">Pesquisa, planejamento pedagógico e experiências de aprendizagem para integrar a IA à educação com intencionalidade, pensamento crítico e responsabilidade.</p>
+          <h1 id="hero-titulo">Conhecimento, inovação e transformação pela <span class="swash">educação</span>.</h1>
+          <p class="hero-lead">Palestras, oficinas e projetos que conectam Administração, educação e inteligência artificial para desenvolver pessoas e transformar práticas.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#palestras">Conheça as palestras e oficinas</a>
-            <a class="btn btn-outline" href="#contato">Entre em contato para eventos</a>
+            <a class="btn btn-primary" href="#palestras">Conheça minhas palestras e oficinas <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#sobre">Minha trajetória acadêmica</a>
           </div>
 
           <ul class="hero-links" aria-label="Perfis e canais">
@@ -110,26 +124,10 @@
             <li><a href="https://isaacbrasil.substack.com/" target="_blank" rel="noopener noreferrer">Substack<span class="visually-hidden"> (abre em nova aba)</span></a></li>
           </ul>
         </div>
-
-        <figure class="hero-portrait">
-          <!--
-            FOTOGRAFIA PROFISSIONAL
-            Para usar sua foto: salve-a como assets/foto-isaac.jpg (formato retrato, ~800×1000 px)
-            e substitua o <div class="portrait-placeholder"> abaixo por:
-            <img src="assets/foto-isaac.jpg" alt="Retrato de Isaac Brasil" width="800" height="1000">
-          -->
-          <div class="portrait-frame">
-            <div class="portrait-placeholder" role="img" aria-label="Espaço reservado para a fotografia de Isaac Brasil">
-              <span aria-hidden="true">IB</span>
-            </div>
-          </div>
-          <figcaption>
-            <strong>Doutorando em Administração</strong>
-            <span>FEA-USP · Gestão de Pessoas nas Organizações</span>
-          </figcaption>
-        </figure>
       </div>
+    </section>
 
+    <div class="topic-band">
       <div class="container">
         <ul class="topic-strip" aria-label="Temas de atuação">
           <li>Design Instrucional</li>
@@ -139,7 +137,7 @@
           <li>Pensamento crítico</li>
         </ul>
       </div>
-    </section>
+    </div>
 
     <!-- ============ B — SOBRE ============ -->
     <section class="section" id="sobre" aria-labelledby="sobre-titulo">
@@ -181,10 +179,10 @@
         <header class="section-head section-head-wide">
           <p class="section-index"><span>02</span> Palestras</p>
           <h2 id="palestras-titulo">Palestras para refletir, experimentar e transformar a prática.</h2>
-          <p class="section-intro">Três propostas para eventos acadêmicos, encontros de professores e programas de formação. Duração, formato e ênfase podem ser ajustados ao público e aos objetivos do evento.</p>
+          <p class="section-intro">Duas propostas para eventos acadêmicos, encontros de professores e programas de formação. Duração, formato e ênfase podem ser ajustados ao público e aos objetivos do evento.</p>
         </header>
 
-        <div class="card-grid">
+        <div class="card-grid card-grid-2">
           <article class="card talk reveal">
             <p class="card-tag">Palestra 1</p>
             <h3>Design Instrucional na Era da Inteligência Artificial Generativa</h3>
@@ -198,17 +196,6 @@
 
           <article class="card talk reveal">
             <p class="card-tag">Palestra 2</p>
-            <h3>Do Prompt ao Planejamento: IA Aplicada ao Design de Aulas</h3>
-            <p>Demonstração prática de como utilizar ferramentas de IA para apoiar a criação de objetivos de aprendizagem, atividades, estudos de caso, materiais didáticos e avaliações.</p>
-            <dl class="meta">
-              <div><dt>Público</dt><dd>Docentes do ensino técnico e superior, formadores e profissionais de educação corporativa.</dd></div>
-              <div><dt>Duração sugerida</dt><dd>60 a 90 minutos, ajustável</dd></div>
-            </dl>
-            <a class="btn btn-small" href="#contato" data-atividade="palestra" data-tema="Do Prompt ao Planejamento: IA Aplicada ao Design de Aulas">Consultar disponibilidade</a>
-          </article>
-
-          <article class="card talk reveal">
-            <p class="card-tag">Palestra 3</p>
             <h3>IA sem Terceirizar o Pensamento: Aprendizagem e Reflexão Crítica</h3>
             <p>Uma reflexão sobre os desafios de preservar a autonomia intelectual, a participação ativa dos estudantes e o pensamento crítico em contextos educacionais mediados por IA.</p>
             <dl class="meta">
@@ -436,7 +423,6 @@
             <select id="f-tema" name="tema">
               <optgroup label="Palestras">
                 <option>Design Instrucional na Era da Inteligência Artificial Generativa</option>
-                <option>Do Prompt ao Planejamento: IA Aplicada ao Design de Aulas</option>
                 <option>IA sem Terceirizar o Pensamento: Aprendizagem e Reflexão Crítica</option>
               </optgroup>
               <optgroup label="Oficinas">

@@ -809,3 +809,194 @@ ul, ol { padding: 0; margin: 0; }
   .section-dark h2, .section-dark h3 { color: #000; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   6. Cabeçalho flutuante e abertura com fotografia (v2)
+   ========================================================= */
+:root {
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --hero-bg: #eef1f6;
+  --navy-tint: rgba(15, 35, 64, 0.07);
+}
+html { scroll-padding-top: 108px; }
+
+/* Cabeçalho */
+.site-header {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0; right: 0;
+  padding: 12px var(--gutter) 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 0;
+  pointer-events: none;
+}
+.header-bar {
+  position: relative;
+  pointer-events: auto;
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 76px;
+  padding: 0 14px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(250, 251, 253, 0.8);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid rgba(15, 35, 64, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 35, 64, 0.08);
+  transition: background-color .2s, box-shadow .2s;
+}
+.site-header.is-scrolled .header-bar {
+  background: rgba(250, 251, 253, 0.95);
+  box-shadow: 0 10px 30px rgba(15, 35, 64, 0.12);
+}
+.brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.65rem;
+  letter-spacing: -0.01em;
+  color: var(--navy-800);
+  text-decoration: none;
+}
+.site-nav ul { gap: 2px; }
+.site-nav a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.06rem;
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+.site-nav a:hover { color: var(--navy-800); background: rgba(15, 35, 64, 0.045); }
+.site-nav a.is-active { color: var(--navy-800); background: var(--navy-tint); }
+
+/* Abertura */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background: linear-gradient(110deg, #f4f6f9 0%, var(--hero-bg) 50%, #e8ecf2 100%);
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+}
+.hero-photo {
+  position: absolute;
+  right: 0; bottom: 0;
+  height: 100%;
+  width: min(58%, 980px);
+  max-width: 100%;
+  object-fit: cover;
+  object-position: 55% 12%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+}
+.hero-net {
+  position: absolute;
+  left: -24px; bottom: -16px;
+  width: 460px;
+  max-width: 70%;
+  color: rgba(15, 35, 64, 0.16);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 2; padding-block: 150px 100px; }
+.hero-text { max-width: 690px; }
+.hero-lead { max-width: 31em; }
+
+.hero-badge {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--navy-tint);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--navy-800);
+}
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5.4vw, 4.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  max-width: 15ch;
+  margin-bottom: 26px;
+  color: var(--navy-900);
+}
+.swash {
+  padding-bottom: 0.1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M3 10 C 70 3, 150 2, 297 7' fill='none' stroke='%237c8aa8' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat left bottom / 96% 0.2em;
+}
+.hero-lead {
+  font-size: clamp(1.15rem, 1.6vw, 1.32rem);
+  line-height: 1.6;
+  color: #2a3443;
+  max-width: 33em;
+  margin-bottom: 34px;
+}
+.hero-actions { gap: 14px; margin-bottom: 30px; }
+.hero .btn { border-radius: 8px; font-family: var(--font-body); font-weight: 600; font-size: 1.05rem; padding: 14px 26px; }
+.hero .btn-primary { background: var(--navy-900); box-shadow: 0 10px 22px rgba(11, 26, 49, 0.25); }
+.hero .btn-primary:hover { background: var(--navy-700); }
+.hero .btn-outline { background: rgba(255, 255, 255, 0.55); border-width: 1.5px; }
+.hero .btn-outline:hover { background: var(--navy-800); }
+
+.topic-band { background: var(--bg); }
+.topic-band .topic-strip { margin-top: 0; border-top: 0; }
+
+/* Responsivo — v2 */
+@media (max-width: 1100px) {
+  .hero-photo { width: 52%; }
+  .hero-text { max-width: 520px; }
+  .site-nav a { padding: 10px 11px; font-size: 1rem; }
+}
+
+@media (max-width: 880px) {
+  html { scroll-padding-top: 92px; }
+  .header-bar { min-height: 64px; padding: 0 8px 0 20px; }
+  .brand { font-size: 1.4rem; }
+  .site-nav {
+    top: calc(100% + 8px);
+    background: #fff;
+    border: 1px solid rgba(15, 35, 64, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(15, 35, 64, 0.14);
+  }
+  .site-nav ul { padding: 8px 12px; }
+  .site-nav a { padding: 14px 10px; font-size: 1.05rem; border-radius: 8px; border-bottom: 0; }
+  .site-nav li + li a { border-top: 1px solid var(--line); border-radius: 0; }
+
+  .hero { display: block; min-height: 0; padding-top: 84px; }
+  .hero-photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(380px, 95vw, 560px);
+    object-position: 50% 4%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  }
+  .hero-inner { padding-block: 0 64px; margin-top: -36px; }
+  .hero-text { max-width: none; }
+  .hero h1 { max-width: 16ch; }
+  .hero-net { width: 340px; }
+}
+
+@media (max-width: 640px) {
+  .hero-badge { font-size: 0.74rem; letter-spacing: 0.01em; padding: 7px 12px; }
+  .hero .btn { font-size: 1rem; padding: 14px 18px; }
+  .hero h1 { font-size: clamp(2.2rem, 10vw, 2.8rem); }
+  .hero .btn { width: 100%; }
+}
+
+/* Palestras: duas colunas */
+.card-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 900px; }
+@media (max-width: 640px) { .card-grid-2 { grid-template-columns: 1fr; } }
